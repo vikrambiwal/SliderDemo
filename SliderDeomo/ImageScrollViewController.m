@@ -10,8 +10,8 @@
 
 @interface ImageScrollViewController (){
     UIScrollView *scrollView;
-    UIViewController* delegate;
     NSArray * arrData;
+    UIPageControl *imagePageController;
 }
 
 @end
@@ -19,53 +19,77 @@
 @implementation ImageScrollViewController
 
 
--(instancetype)initWithController:(UIScrollView *)view data:(NSMutableArray *)data  delegate:(UIViewController* )obj{
+-(instancetype)initWithController:(UIScrollView *)view data:(NSMutableArray *)data{
     if (self) {
-        delegate=obj;
-        arrData=data;
-        scrollView=view;
-        
-        scrollView.pagingEnabled=YES;
-        scrollView.showsHorizontalScrollIndicator = NO;
-        scrollView.showsVerticalScrollIndicator = NO;
-        scrollView.scrollsToTop = NO;
-        scrollView.delegate = self;
-        
-        UIImageView *imgView;
-        for (int i = 0; i < [arrData count]; i++) {
-            NSString *imageName = [arrData objectAtIndex:i];
-            
-            //We'll create an imageView object in every 'page' of our scrollView.
-            CGRect frame;
-            frame.origin.x = scrollView.frame.size.width * i;
-            frame.origin.y = 0;
-            frame.size = scrollView.frame.size;
-            
-            imgView=[[UIImageView alloc] initWithFrame:frame];
-            [imgView setContentMode:UIViewContentModeScaleAspectFit];
-//            [imgView setBackgroundColor:[UIColor grayColor ]];
-            imgView.image = [UIImage imageNamed:imageName];
-            [scrollView addSubview:imgView];
-            
-        }
-        
-        //Set the content size of our scrollview according to the total width of our imageView objects.
-        scrollView.contentSize = CGSizeMake(scrollView.frame.size.width * [arrData count], scrollView.frame.size.height);
+        [self setPage:view data:data];
+      
+    }
+    return self;
+}
+
+-(instancetype)initWithController:(UIScrollView *)view data:(NSMutableArray *)data pageController:(UIPageControl* )pageController{
+    if (self) {
+        [self setPage:view data:data];
+        imagePageController = pageController;
+        imagePageController.numberOfPages=data.count;
         
         
     }
     return self;
 }
 
+
+- (void)setPage:(UIScrollView *)view data:(NSMutableArray *)data{
+    arrData=data;
+    scrollView=view;
+    
+    scrollView.pagingEnabled=YES;
+    scrollView.showsHorizontalScrollIndicator = NO;
+    scrollView.showsVerticalScrollIndicator = NO;
+    scrollView.scrollsToTop = NO;
+    scrollView.delegate = self;
+    
+    UIImageView *imgView;
+    for (int i = 0; i < [arrData count]; i++) {
+        NSString *imageName = [arrData objectAtIndex:i];
+        
+        //We'll create an imageView object in every 'page' of our scrollView.
+        CGRect frame;
+        frame.origin.x = scrollView.frame.size.width * i;
+        frame.origin.y = 0;
+        frame.size = scrollView.frame.size;
+        
+        imgView=[[UIImageView alloc] initWithFrame:frame];
+        [imgView setContentMode:UIViewContentModeScaleAspectFit];
+        imgView.image = [UIImage imageNamed:imageName];
+        [scrollView addSubview:imgView];
+        
+    }
+    scrollView.contentSize = CGSizeMake(scrollView.frame.size.width * [arrData count], scrollView.frame.size.height);
+}
+
+
 - (void)viewDidLoad {
-    [super viewDidLoad];
+//    [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)scrollViewDidScroll:(UIScrollView *)sender
+{
+    if([arrData count] > 1){
+        int currentIndex = (int)round(scrollView.contentOffset.x / scrollView.frame.size.width);
+        
+        [delegate pageChange:currentIndex];
+        if(imagePageController)
+            imagePageController.currentPage = currentIndex;
+    }
 }
+
+- (void) setDelegate:(id)newDelegate{
+    delegate = newDelegate;
+}
+
+
 
 /*
  #pragma mark - Navigation

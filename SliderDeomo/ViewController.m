@@ -9,9 +9,10 @@
 #import "ViewController.h"
 #import "ImageScrollViewController.h"
 
-@interface ViewController (){
+@interface ViewController ()<ImageScrollDellegate, UIScrollViewDelegate>{
     
     IBOutlet UIScrollView *scrollView;
+    IBOutlet UIPageControl *pageController;
     ImageScrollViewController *imageViewController;
 }
 
@@ -24,10 +25,26 @@
     // Do any additional setup after loading the view, typically from a nib.
     
     NSMutableArray* arrData= [[NSMutableArray alloc] initWithArray:@[@"img_1.jpg",@"img_2.jpg",@"img_3.jpg",@"img_4.jpg",@"img_5.jpg"]];
-                              
-    imageViewController=[[ImageScrollViewController alloc] initWithController:scrollView data:arrData delegate:self];
-    
 
+    
+    /*
+     
+    Use this to remove pageController
+    imageViewController=[[ImageScrollViewController alloc] initWithController:scrollView data:arrData];
+    
+    */
+    
+    imageViewController=[[ImageScrollViewController alloc] initWithController:scrollView data:arrData pageController:pageController];
+    
+    [imageViewController setDelegate:self];
+    
+}
+- (void)scrollViewDidScroll:(UIScrollView *)sender
+{
+    
+}
+- (void) pageChange: (NSInteger)pageNumber{
+    
 }
 
 - (void)didReceiveMemoryWarning {
