@@ -8,8 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ImageScrollViewController : UIViewController<UIScrollViewDelegate>
+@protocol ImageScrollDellegate <NSObject>
+@required
+- (void) pageChange: (NSInteger)pageNumber;
 
--(instancetype)initWithController:(UIScrollView *)view data:(NSMutableArray *)data  delegate:(UIViewController* )obj;
+@end
+
+@interface ImageScrollViewController : NSObject<UIScrollViewDelegate>{
+    id <ImageScrollDellegate> delegate;
+}
+
+-(instancetype)initWithController:(UIScrollView *)view data:(NSMutableArray *)data;
+
+-(instancetype)initWithController:(UIScrollView *)view data:(NSMutableArray *)data pageController:(UIPageControl* )pageController;
+
+- (void)setDelegate:(id)newDelegate;
 
 @end
