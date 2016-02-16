@@ -5,7 +5,6 @@
 
 
     imageViewController=[[ImageScrollViewController alloc] initWithController:scrollView data:arrData              pageController:pageController];
-    
     [imageViewController setDelegate:self];
     
 4. Without page controller example:
