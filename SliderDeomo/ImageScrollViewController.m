@@ -12,6 +12,8 @@
     UIScrollView *scrollView;
     NSArray * arrData;
     UIPageControl *imagePageController;
+    NSInteger currentIndex;
+    
 }
 
 @end
@@ -37,7 +39,26 @@
     }
     return self;
 }
-
+-(instancetype)initWithController:(UIScrollView *)view data:(NSMutableArray *)data buttonNext:(UIButton* )btnNext buttonPrevious:(UIButton* )btnPrevious{
+    
+    if (self) {
+        [self setPage:view data:data];
+        
+        if(btnNext){
+            [btnNext addTarget:self
+                       action:@selector(nextClick:)
+             forControlEvents:UIControlEventTouchUpInside];
+        }
+        if(btnPrevious){
+            [btnPrevious addTarget:self
+                        action:@selector(previousClick:)
+              forControlEvents:UIControlEventTouchUpInside];
+        }
+        
+        
+    }
+    return self;
+}
 
 - (void)setPage:(UIScrollView *)view data:(NSMutableArray *)data{
     arrData=data;
@@ -77,13 +98,36 @@
 - (void)scrollViewDidScroll:(UIScrollView *)sender
 {
     if([arrData count] > 1){
-        int currentIndex = (int)round(scrollView.contentOffset.x / scrollView.frame.size.width);
-        
+        currentIndex = (int)round(scrollView.contentOffset.x / scrollView.frame.size.width);
         [delegate pageChange:currentIndex];
         if(imagePageController)
             imagePageController.currentPage = currentIndex;
     }
 }
+
+
+- (void)nextClick:(id)sender {
+    
+    if(currentIndex+1< [arrData count]){
+        CGRect frame = scrollView.frame;
+        frame.origin.x = frame.size.width * (currentIndex+1);
+        [scrollView scrollRectToVisible:frame animated:YES];
+        
+    }
+}
+
+- (void)previousClick:(id)sender {
+    
+    if(currentIndex-1 >=0){
+        CGRect frame = scrollView.frame;
+        frame.origin.x = frame.size.width * (currentIndex-1);
+        [scrollView scrollRectToVisible:frame animated:YES];
+        
+    }
+    
+}
+
+
 
 - (void) setDelegate:(id)newDelegate{
     delegate = newDelegate;

@@ -14,6 +14,9 @@
     IBOutlet UIScrollView *scrollView;
     IBOutlet UIPageControl *pageController;
     ImageScrollViewController *imageViewController;
+    
+    IBOutlet UIButton *btnPrevious;
+    IBOutlet UIButton *btnNext;
 }
 
 @end
@@ -34,7 +37,12 @@
     
     */
     
+     /*
     imageViewController=[[ImageScrollViewController alloc] initWithController:scrollView data:arrData pageController:pageController];
+    
+        */
+    imageViewController=[[ImageScrollViewController alloc] initWithController:scrollView data:arrData buttonNext:btnNext buttonPrevious:btnPrevious];
+    
     
     [imageViewController setDelegate:self];
     
