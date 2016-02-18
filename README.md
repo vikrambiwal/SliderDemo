@@ -6,17 +6,17 @@
     3.1 With page controller example:
 
 
-    imageViewController=[[ImageScrollViewController alloc] initWithController:scrollView data:arrData              pageController:pageController];
+        imageViewController=[[ImageScrollViewController alloc] initWithController:scrollView data:arrData              pageController:pageController];
     
-    [imageViewController setDelegate:self];
+        [imageViewController setDelegate:self];
     
     3.2  Without page controller example:
 
-  imageViewController=[[ImageScrollViewController alloc] initWithController:scrollView data:arrData];
-  [imageViewController setDelegate:self];
+        imageViewController=[[ImageScrollViewController alloc] initWithController:scrollView data:arrData];
+        [imageViewController setDelegate:self];
   
     3.3 Without page controller example:
 
-    imageViewController=[[ImageScrollViewController alloc] initWithController:scrollView data:arrData buttonNext:btnNext buttonPrevious:btnPrevious];
-    [imageViewController setDelegate:self];
+          imageViewController=[[ImageScrollViewController alloc] initWithController:scrollView data:arrData buttonNext:btnNext buttonPrevious:btnPrevious];
+        [imageViewController setDelegate:self];
   
