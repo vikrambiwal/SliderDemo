@@ -54,11 +54,36 @@
                         action:@selector(previousClick:)
               forControlEvents:UIControlEventTouchUpInside];
         }
-        
-        
     }
     return self;
 }
+
+-(instancetype)initWithController:(UIScrollView *)view data:(NSMutableArray *)data buttonNext:(UIButton* )btnNext buttonPrevious:(UIButton* )btnPrevious pageController:(UIPageControl* )pageController{
+    
+    if (self) {
+        [self setPage:view data:data];
+        
+        if(btnNext){
+            [btnNext addTarget:self
+                        action:@selector(nextClick:)
+              forControlEvents:UIControlEventTouchUpInside];
+        }
+        if(btnPrevious){
+            [btnPrevious addTarget:self
+                            action:@selector(previousClick:)
+                  forControlEvents:UIControlEventTouchUpInside];
+        }
+        if(pageController){
+            [self setPage:view data:data];
+            imagePageController = pageController;
+            imagePageController.numberOfPages=data.count;
+        }
+    }
+    return self;
+}
+
+
+
 
 - (void)setPage:(UIScrollView *)view data:(NSMutableArray *)data{
     arrData=data;
