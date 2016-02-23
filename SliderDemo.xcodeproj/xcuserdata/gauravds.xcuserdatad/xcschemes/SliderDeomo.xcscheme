@@ -17,7 +17,7 @@
                BlueprintIdentifier = "A4FC55791BEB6C5300A374BB"
                BuildableName = "SliderDeomo.app"
                BlueprintName = "SliderDeomo"
-               ReferencedContainer = "container:SliderDeomo.xcodeproj">
+               ReferencedContainer = "container:SliderDemo.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -35,7 +35,7 @@
                BlueprintIdentifier = "A4FC55921BEB6C5600A374BB"
                BuildableName = "SliderDeomoTests.xctest"
                BlueprintName = "SliderDeomoTests"
-               ReferencedContainer = "container:SliderDeomo.xcodeproj">
+               ReferencedContainer = "container:SliderDemo.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -45,7 +45,7 @@
                BlueprintIdentifier = "A4FC559D1BEB6C5600A374BB"
                BuildableName = "SliderDeomoUITests.xctest"
                BlueprintName = "SliderDeomoUITests"
-               ReferencedContainer = "container:SliderDeomo.xcodeproj">
+               ReferencedContainer = "container:SliderDemo.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,7 +55,7 @@
             BlueprintIdentifier = "A4FC55791BEB6C5300A374BB"
             BuildableName = "SliderDeomo.app"
             BlueprintName = "SliderDeomo"
-            ReferencedContainer = "container:SliderDeomo.xcodeproj">
+            ReferencedContainer = "container:SliderDemo.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -78,7 +78,7 @@
             BlueprintIdentifier = "A4FC55791BEB6C5300A374BB"
             BuildableName = "SliderDeomo.app"
             BlueprintName = "SliderDeomo"
-            ReferencedContainer = "container:SliderDeomo.xcodeproj">
+            ReferencedContainer = "container:SliderDemo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -97,7 +97,7 @@
             BlueprintIdentifier = "A4FC55791BEB6C5300A374BB"
             BuildableName = "SliderDeomo.app"
             BlueprintName = "SliderDeomo"
-            ReferencedContainer = "container:SliderDeomo.xcodeproj">
+            ReferencedContainer = "container:SliderDemo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
