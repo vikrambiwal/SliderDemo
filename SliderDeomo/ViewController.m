@@ -41,8 +41,11 @@
     imageViewController=[[ImageScrollViewController alloc] initWithController:scrollView data:arrData pageController:pageController];
     
         */
-    imageViewController=[[ImageScrollViewController alloc] initWithController:scrollView data:arrData buttonNext:btnNext buttonPrevious:btnPrevious];
+     /*
+    imageViewController=[[ImageScrollViewController alloc] initWithController:scrollView data:arrData buttonNext:btnNext buttonPrevious:btnPrevous];
+      */
     
+   imageViewController=[[ImageScrollViewController alloc] initWithController:scrollView data:arrData buttonNext:btnNext buttonPrevious:btnPrevious pageController:pageController];
     
     [imageViewController setDelegate:self];
     

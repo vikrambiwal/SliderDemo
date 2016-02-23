@@ -24,6 +24,8 @@
 
 -(instancetype)initWithController:(UIScrollView *)view data:(NSMutableArray *)data buttonNext:(UIButton* )btnNext buttonPrevious:(UIButton* )btnPrevious ;
 
+-(instancetype)initWithController:(UIScrollView *)view data:(NSMutableArray *)data buttonNext:(UIButton* )btnNext buttonPrevious:(UIButton* )btnPrevious pageController:(UIPageControl* )pageController;
+
 - (void)setDelegate:(id)newDelegate;
 
 @end

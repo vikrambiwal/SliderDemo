@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SliderDeomo/ImageScrollViewController.m"
-            timestampString = "477478817.9122"
+            timestampString = "477907358.491501"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "120"
-            endingLineNumber = "120"
+            startingLineNumber = "145"
+            endingLineNumber = "145"
             landmarkName = "-previousClick:"
             landmarkType = "5">
          </BreakpointContent>
@@ -90,27 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SliderDeomo/ImageScrollViewController.m"
-            timestampString = "477478832.048276"
+            timestampString = "477907358.491501"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
-            landmarkName = "-initWithController:data:buttonNext:buttonPrevious:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SliderDeomo/ImageScrollViewController.m"
-            timestampString = "477478961.627291"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "113"
-            endingLineNumber = "113"
+            startingLineNumber = "138"
+            endingLineNumber = "138"
             landmarkName = "-nextClick:"
             landmarkType = "5">
          </BreakpointContent>
